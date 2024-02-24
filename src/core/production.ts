@@ -26,7 +26,10 @@ const production = async (
         await bot.telegram.deleteWebhook();
         debug(`setting webhook: ${VERCEL_URL}/api`);
         await bot.telegram.setWebhook(`${VERCEL_URL}/api`);
+        console.log('Webhook set to:', VERCEL_URL + '/api');
+        console.log('Webhook info:', await bot.telegram.getWebhookInfo());
     }
+    console.log(getWebhookInfo);
 
     if (req.method === 'POST') {
         await bot.handleUpdate(req.body as unknown as Update, res);

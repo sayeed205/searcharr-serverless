@@ -1,8 +1,7 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import 'module-alias/register';
 import { Telegraf } from 'telegraf';
 
-import { development, production } from '@/core';
+import { development, production } from './core';
 
 const BOT_TOKEN = process.env.TG_BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';

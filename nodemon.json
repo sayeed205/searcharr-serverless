@@ -4,5 +4,5 @@
     "env": {
         "DEBUG": "bot*"
     },
-    "exec": "ts-node-dev -r tsconfig-paths/register -r dotenv/config ./src/index.ts"
+    "exec": "ts-node-dev -r dotenv/config ./src/index.ts"
 }

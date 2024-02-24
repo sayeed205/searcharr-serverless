@@ -1,0 +1,8 @@
+{
+    "watch": ["src", "api", "tsconfig.json", "package.json", "nodemon.json"],
+    "ext": "ts",
+    "env": {
+        "DEBUG": "bot*"
+    },
+    "exec": "ts-node-dev -r tsconfig-paths/register -r dotenv/config ./src/index.ts"
+}

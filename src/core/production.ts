@@ -6,7 +6,7 @@ import { Update } from 'telegraf/typings/core/types/typegram';
 const debug = createDebug('bot:dev');
 
 const PORT = (process.env.PORT && parseInt(process.env.PORT, 10)) || 3000;
-const VERCEL_URL = `${process.env.VERCEL_URL}`;
+const BASE_URL = `${process.env.BASE_URL}`;
 
 const production = async (
     req: VercelRequest,
@@ -14,19 +14,19 @@ const production = async (
     bot: Telegraf<Context<Update>>
 ) => {
     debug('Bot runs in production mode');
-    debug(`setting webhook: ${VERCEL_URL}`);
+    debug(`setting webhook: ${BASE_URL}`);
 
-    if (!VERCEL_URL) {
-        throw new Error('VERCEL_URL is not set.');
+    if (!BASE_URL) {
+        throw new Error('BASE_URL is not set.');
     }
 
     const getWebhookInfo = await bot.telegram.getWebhookInfo();
-    if (getWebhookInfo.url !== VERCEL_URL + '/api') {
-        debug(`deleting webhook ${VERCEL_URL}`);
+    if (getWebhookInfo.url !== BASE_URL + '/api') {
+        debug(`deleting webhook ${BASE_URL}`);
         await bot.telegram.deleteWebhook();
-        debug(`setting webhook: ${VERCEL_URL}/api`);
-        await bot.telegram.setWebhook(`${VERCEL_URL}/api`);
-        console.log('Webhook set to:', VERCEL_URL + '/api');
+        debug(`setting webhook: ${BASE_URL}/api`);
+        await bot.telegram.setWebhook(`${BASE_URL}/api`);
+        console.log('Webhook set to:', BASE_URL + '/api');
         console.log('Webhook info:', await bot.telegram.getWebhookInfo());
     }
     console.log(getWebhookInfo);

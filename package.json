@@ -6,14 +6,19 @@
         "build": "ncc build src/index.ts -o public -m",
         "format": "prettier --write 'src/**/*.ts'"
     },
+    "_moduleAliases": {
+        "@/*": "src/*"
+    },
     "dependencies": {
         "@vercel/node": "3.0.20",
         "debug": "4.3.4",
         "dotenv": "16.4.5",
+        "module-alias": "2.2.3",
         "telegraf": "4.15.3"
     },
     "devDependencies": {
         "@types/debug": "^4.1.12",
+        "@types/module-alias": "^2.0.4",
         "@types/node": "20.11.20",
         "@types/nodemon": "^1.19.6",
         "@vercel/ncc": "0.38.1",

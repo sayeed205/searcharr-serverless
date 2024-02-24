@@ -132,4 +132,5 @@ dist
 # vercel
 .vercel
 
-.vercel
+# public build
+public

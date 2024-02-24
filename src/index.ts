@@ -1,4 +1,5 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
+import 'module-alias/register';
 import { Telegraf } from 'telegraf';
 
 import { development, production } from '@/core';
